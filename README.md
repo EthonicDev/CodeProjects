@@ -1,2 +1,2 @@
 # customwallpapers
-These are some wallpapers I make in blender.
+Code stuff that I made.
