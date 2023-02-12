@@ -1,0 +1,36 @@
+import turtle
+import random
+t = turtle.Turtle()
+t.speed(0)
+t.hideturtle()
+screen = turtle.Screen()
+screen.bgcolor("black")
+line_length = 400
+t.penup()
+t.goto(-line_length/2, 0)
+t.pendown()
+t.color("red")
+t.forward(line_length)
+t.penup()
+t.goto(-line_length/2 - 50, 50)
+t.color("white")
+t.write("Heart rate:", align="left", font=("Arial", 40, "normal"))
+heart_rates = []
+def update_heart_rate():
+  heart_rate = random.randint(60, 100)
+  heart_rates.append(heart_rate)
+  t.clear()
+  t.penup()
+  t.goto(-line_length/2, 0)
+  t.pendown()
+  t.color("red")
+  t.forward(line_length)
+  t.color("white")
+  t.penup()
+  t.goto(-line_length/2, 0)
+  t.pendown()
+  for i, hr in enumerate(heart_rates):
+    t.goto(-line_length/2 + i * 4, hr)
+  screen.ontimer(update_heart_rate, 1000)
+update_heart_rate()
+turtle.mainloop()
